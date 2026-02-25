@@ -1,1 +1,535 @@
-
+/* Custom Styles for 운세플러스 */
+     2	
+     3	* {
+     4	    margin: 0;
+     5	    padding: 0;
+     6	    box-sizing: border-box;
+     7	}
+     8	
+     9	body {
+    10	    font-family: 'Noto Sans KR', sans-serif;
+    11	    overflow-x: hidden;
+    12	}
+    13	
+    14	/* Smooth Scroll */
+    15	html {
+    16	    scroll-behavior: smooth;
+    17	}
+    18	
+    19	/* Particles Container */
+    20	#particles-js {
+    21	    position: absolute;
+    22	    width: 100%;
+    23	    height: 100%;
+    24	    top: 0;
+    25	    left: 0;
+    26	    z-index: 1;
+    27	}
+    28	
+    29	/* Custom Scrollbar */
+    30	::-webkit-scrollbar {
+    31	    width: 10px;
+    32	}
+    33	
+    34	::-webkit-scrollbar-track {
+    35	    background: #f1f1f1;
+    36	}
+    37	
+    38	::-webkit-scrollbar-thumb {
+    39	    background: linear-gradient(to bottom, #9370DB, #191970);
+    40	    border-radius: 10px;
+    41	}
+    42	
+    43	::-webkit-scrollbar-thumb:hover {
+    44	    background: linear-gradient(to bottom, #7B68EE, #000080);
+    45	}
+    46	
+    47	/* Animations */
+    48	@keyframes float {
+    49	    0%, 100% {
+    50	        transform: translateY(0px);
+    51	    }
+    52	    50% {
+    53	        transform: translateY(-20px);
+    54	    }
+    55	}
+    56	
+    57	@keyframes pulse {
+    58	    0%, 100% {
+    59	        transform: scale(1);
+    60	    }
+    61	    50% {
+    62	        transform: scale(1.05);
+    63	    }
+    64	}
+    65	
+    66	@keyframes fadeInUp {
+    67	    from {
+    68	        opacity: 0;
+    69	        transform: translateY(30px);
+    70	    }
+    71	    to {
+    72	        opacity: 1;
+    73	        transform: translateY(0);
+    74	    }
+    75	}
+    76	
+    77	@keyframes shimmer {
+    78	    0% {
+    79	        background-position: -1000px 0;
+    80	    }
+    81	    100% {
+    82	        background-position: 1000px 0;
+    83	    }
+    84	}
+    85	
+    86	.animate-float {
+    87	    animation: float 3s ease-in-out infinite;
+    88	}
+    89	
+    90	.animate-pulse-custom {
+    91	    animation: pulse 2s ease-in-out infinite;
+    92	}
+    93	
+    94	/* Gradient Text */
+    95	.gradient-text {
+    96	    background: linear-gradient(to right, #9370DB, #191970);
+    97	    -webkit-background-clip: text;
+    98	    -webkit-text-fill-color: transparent;
+    99	    background-clip: text;
+   100	}
+   101	
+   102	/* Glass Effect */
+   103	.glass {
+   104	    background: rgba(255, 255, 255, 0.1);
+   105	    backdrop-filter: blur(10px);
+   106	    border: 1px solid rgba(255, 255, 255, 0.2);
+   107	}
+   108	
+   109	/* Hover Glow Effect */
+   110	.hover-glow {
+   111	    transition: all 0.3s ease;
+   112	}
+   113	
+   114	.hover-glow:hover {
+   115	    box-shadow: 0 0 30px rgba(147, 112, 219, 0.5);
+   116	}
+   117	
+   118	/* Card Animations */
+   119	.category-card {
+   120	    transition: all 0.3s ease;
+   121	}
+   122	
+   123	.category-card:hover {
+   124	    transform: translateY(-10px);
+   125	}
+   126	
+   127	/* Zodiac Button Animation */
+   128	.zodiac-btn {
+   129	    transition: all 0.3s ease;
+   130	}
+   131	
+   132	.zodiac-btn:hover {
+   133	    transform: scale(1.1) rotate(5deg);
+   134	}
+   135	
+   136	/* Modal Animations */
+   137	.modal-enter {
+   138	    animation: fadeInUp 0.4s ease-out;
+   139	}
+   140	
+   141	/* Loading Spinner */
+   142	.spinner {
+   143	    border: 4px solid rgba(147, 112, 219, 0.1);
+   144	    border-top: 4px solid #9370DB;
+   145	    border-radius: 50%;
+   146	    width: 40px;
+   147	    height: 40px;
+   148	    animation: spin 1s linear infinite;
+   149	}
+   150	
+   151	@keyframes spin {
+   152	    0% { transform: rotate(0deg); }
+   153	    100% { transform: rotate(360deg); }
+   154	}
+   155	
+   156	/* Success Checkmark Animation */
+   157	@keyframes checkmark {
+   158	    0% {
+   159	        stroke-dashoffset: 50;
+   160	    }
+   161	    100% {
+   162	        stroke-dashoffset: 0;
+   163	    }
+   164	}
+   165	
+   166	.checkmark {
+   167	    animation: checkmark 0.5s ease-in-out;
+   168	}
+   169	
+   170	/* Floating Elements */
+   171	.floating {
+   172	    animation: float 6s ease-in-out infinite;
+   173	}
+   174	
+   175	/* Shimmer Effect for Loading */
+   176	.shimmer {
+   177	    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+   178	    background-size: 1000px 100%;
+   179	    animation: shimmer 2s infinite;
+   180	}
+   181	
+   182	/* Progress Bar */
+   183	.progress-bar {
+   184	    height: 8px;
+   185	    background: linear-gradient(to right, #9370DB, #191970);
+   186	    border-radius: 10px;
+   187	    transition: width 0.3s ease;
+   188	}
+   189	
+   190	/* Custom Radio Buttons */
+   191	.custom-radio {
+   192	    appearance: none;
+   193	    width: 20px;
+   194	    height: 20px;
+   195	    border: 2px solid #9370DB;
+   196	    border-radius: 50%;
+   197	    position: relative;
+   198	    cursor: pointer;
+   199	    transition: all 0.3s ease;
+   200	}
+   201	
+   202	.custom-radio:checked {
+   203	    background: #9370DB;
+   204	    border-color: #9370DB;
+   205	}
+   206	
+   207	.custom-radio:checked::after {
+   208	    content: '';
+   209	    position: absolute;
+   210	    top: 50%;
+   211	    left: 50%;
+   212	    transform: translate(-50%, -50%);
+   213	    width: 8px;
+   214	    height: 8px;
+   215	    background: white;
+   216	    border-radius: 50%;
+   217	}
+   218	
+   219	/* Custom Checkbox */
+   220	.custom-checkbox {
+   221	    appearance: none;
+   222	    width: 20px;
+   223	    height: 20px;
+   224	    border: 2px solid #9370DB;
+   225	    border-radius: 4px;
+   226	    position: relative;
+   227	    cursor: pointer;
+   228	    transition: all 0.3s ease;
+   229	}
+   230	
+   231	.custom-checkbox:checked {
+   232	    background: #9370DB;
+   233	    border-color: #9370DB;
+   234	}
+   235	
+   236	.custom-checkbox:checked::after {
+   237	    content: '\2714';
+   238	    position: absolute;
+   239	    top: 50%;
+   240	    left: 50%;
+   241	    transform: translate(-50%, -50%);
+   242	    color: white;
+   243	    font-size: 14px;
+   244	}
+   245	
+   246	/* Tooltip */
+   247	.tooltip {
+   248	    position: relative;
+   249	}
+   250	
+   251	.tooltip::after {
+   252	    content: attr(data-tooltip);
+   253	    position: absolute;
+   254	    bottom: 100%;
+   255	    left: 50%;
+   256	    transform: translateX(-50%);
+   257	    background: rgba(0, 0, 0, 0.8);
+   258	    color: white;
+   259	    padding: 8px 12px;
+   260	    border-radius: 8px;
+   261	    font-size: 14px;
+   262	    white-space: nowrap;
+   263	    opacity: 0;
+   264	    pointer-events: none;
+   265	    transition: opacity 0.3s ease;
+   266	}
+   267	
+   268	.tooltip:hover::after {
+   269	    opacity: 1;
+   270	}
+   271	
+   272	/* Badge */
+   273	.badge {
+   274	    display: inline-block;
+   275	    padding: 4px 12px;
+   276	    border-radius: 20px;
+   277	    font-size: 12px;
+   278	    font-weight: 600;
+   279	}
+   280	
+   281	.badge-hot {
+   282	    background: linear-gradient(to right, #ff6b6b, #ee5a6f);
+   283	    color: white;
+   284	}
+   285	
+   286	.badge-new {
+   287	    background: linear-gradient(to right, #9370DB, #FFB6C1);
+   288	    color: white;
+   289	}
+   290	
+   291	.badge-best {
+   292	    background: linear-gradient(to right, #FFD700, #FFA500);
+   293	    color: #191970;
+   294	}
+   295	
+   296	/* Star Rating */
+   297	.star-rating {
+   298	    display: inline-flex;
+   299	    gap: 4px;
+   300	}
+   301	
+   302	.star {
+   303	    color: #FFD700;
+   304	    font-size: 18px;
+   305	}
+   306	
+   307	/* Price Display */
+   308	.price-original {
+   309	    text-decoration: line-through;
+   310	    color: #999;
+   311	    font-size: 16px;
+   312	}
+   313	
+   314	.price-current {
+   315	    color: #9370DB;
+   316	    font-size: 32px;
+   317	    font-weight: bold;
+   318	}
+   319	
+   320	.price-discount {
+   321	    background: #ff6b6b;
+   322	    color: white;
+   323	    padding: 4px 12px;
+   324	    border-radius: 20px;
+   325	    font-size: 14px;
+   326	    font-weight: bold;
+   327	}
+   328	
+   329	/* Input Focus Effect */
+   330	input:focus,
+   331	textarea:focus,
+   332	select:focus {
+   333	    outline: none;
+   334	    border-color: #9370DB;
+   335	    box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.1);
+   336	}
+   337	
+   338	/* Button Styles */
+   339	.btn-primary {
+   340	    background: linear-gradient(to right, #9370DB, #191970);
+   341	    color: white;
+   342	    padding: 12px 32px;
+   343	    border-radius: 9999px;
+   344	    font-weight: bold;
+   345	    border: none;
+   346	    cursor: pointer;
+   347	    transition: all 0.3s ease;
+   348	}
+   349	
+   350	.btn-primary:hover {
+   351	    transform: translateY(-2px);
+   352	    box-shadow: 0 10px 20px rgba(147, 112, 219, 0.3);
+   353	}
+   354	
+   355	.btn-secondary {
+   356	    background: linear-gradient(to right, #FFB6C1, #ff6b6b);
+   357	    color: white;
+   358	    padding: 12px 32px;
+   359	    border-radius: 9999px;
+   360	    font-weight: bold;
+   361	    border: none;
+   362	    cursor: pointer;
+   363	    transition: all 0.3s ease;
+   364	}
+   365	
+   366	.btn-secondary:hover {
+   367	    transform: translateY(-2px);
+   368	    box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3);
+   369	}
+   370	
+   371	.btn-gold {
+   372	    background: linear-gradient(to right, #FFD700, #FFA500);
+   373	    color: #191970;
+   374	    padding: 12px 32px;
+   375	    border-radius: 9999px;
+   376	    font-weight: bold;
+   377	    border: none;
+   378	    cursor: pointer;
+   379	    transition: all 0.3s ease;
+   380	}
+   381	
+   382	.btn-gold:hover {
+   383	    transform: translateY(-2px);
+   384	    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+   385	}
+   386	
+   387	/* Responsive Design Helpers */
+   388	@media (max-width: 768px) {
+   389	    .mobile-hide {
+   390	        display: none;
+   391	    }
+   392	    
+   393	    .mobile-show {
+   394	        display: block;
+   395	    }
+   396	}
+   397	
+   398	@media (min-width: 769px) {
+   399	    .mobile-show {
+   400	        display: none;
+   401	    }
+   402	}
+   403	
+   404	/* Loading State */
+   405	.loading {
+   406	    pointer-events: none;
+   407	    opacity: 0.6;
+   408	    position: relative;
+   409	}
+   410	
+   411	.loading::after {
+   412	    content: '';
+   413	    position: absolute;
+   414	    top: 50%;
+   415	    left: 50%;
+   416	    transform: translate(-50%, -50%);
+   417	    width: 40px;
+   418	    height: 40px;
+   419	    border: 4px solid rgba(147, 112, 219, 0.1);
+   420	    border-top: 4px solid #9370DB;
+   421	    border-radius: 50%;
+   422	    animation: spin 1s linear infinite;
+   423	}
+   424	
+   425	/* Success Message */
+   426	.success-message {
+   427	    background: linear-gradient(to right, #4ade80, #22c55e);
+   428	    color: white;
+   429	    padding: 16px 24px;
+   430	    border-radius: 12px;
+   431	    display: flex;
+   432	    align-items: center;
+   433	    gap: 12px;
+   434	    animation: fadeInUp 0.4s ease-out;
+   435	}
+   436	
+   437	/* Error Message */
+   438	.error-message {
+   439	    background: linear-gradient(to right, #ef4444, #dc2626);
+   440	    color: white;
+   441	    padding: 16px 24px;
+   442	    border-radius: 12px;
+   443	    display: flex;
+   444	    align-items: center;
+   445	    gap: 12px;
+   446	    animation: fadeInUp 0.4s ease-out;
+   447	}
+   448	
+   449	/* Info Message */
+   450	.info-message {
+   451	    background: linear-gradient(to right, #3b82f6, #2563eb);
+   452	    color: white;
+   453	    padding: 16px 24px;
+   454	    border-radius: 12px;
+   455	    display: flex;
+   456	    align-items: center;
+   457	    gap: 12px;
+   458	    animation: fadeInUp 0.4s ease-out;
+   459	}
+   460	
+   461	/* Consultation Form Steps */
+   462	.step-indicator {
+   463	    display: flex;
+   464	    justify-content: space-between;
+   465	    align-items: center;
+   466	    margin-bottom: 32px;
+   467	}
+   468	
+   469	.step {
+   470	    flex: 1;
+   471	    display: flex;
+   472	    flex-direction: column;
+   473	    align-items: center;
+   474	    position: relative;
+   475	}
+   476	
+   477	.step-number {
+   478	    width: 40px;
+   479	    height: 40px;
+   480	    border-radius: 50%;
+   481	    background: #e5e7eb;
+   482	    color: #6b7280;
+   483	    display: flex;
+   484	    align-items: center;
+   485	    justify-content: center;
+   486	    font-weight: bold;
+   487	    margin-bottom: 8px;
+   488	    transition: all 0.3s ease;
+   489	}
+   490	
+   491	.step.active .step-number {
+   492	    background: linear-gradient(to right, #9370DB, #191970);
+   493	    color: white;
+   494	    transform: scale(1.2);
+   495	}
+   496	
+   497	.step.completed .step-number {
+   498	    background: #22c55e;
+   499	    color: white;
+   500	}
+   501	
+   502	.step-line {
+   503	    position: absolute;
+   504	    top: 20px;
+   505	    left: 50%;
+   506	    width: 100%;
+   507	    height: 2px;
+   508	    background: #e5e7eb;
+   509	    z-index: -1;
+   510	}
+   511	
+   512	.step.completed .step-line {
+   513	    background: #22c55e;
+   514	}
+   515	
+   516	.step-label {
+   517	    font-size: 12px;
+   518	    color: #6b7280;
+   519	    text-align: center;
+   520	}
+   521	
+   522	.step.active .step-label {
+   523	    color: #9370DB;
+   524	    font-weight: 600;
+   525	}
+   526	
+   527	/* Print Styles */
+   528	@media print {
+   529	    nav,
+   530	    footer,
+   531	    .no-print {
+   532	        display: none;
+   533	    }
+   534	}
+   535	
