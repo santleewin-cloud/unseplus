@@ -1,1 +1,819 @@
-
+<!DOCTYPE html>
+     2	<html lang="ko">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <title>운세플러스 - 당신의 운명을 플러스하다 🌙</title>
+     7	    <meta name="description" content="트렌디한 운세 상담 플랫폼 운세플러스. 오늘의 운세부터 연애운, 재물운, 로또운까지 전문 상담을 받아보세요.">
+     8	    
+     9	    <!-- Tailwind CSS -->
+    10	    <script src="https://cdn.tailwindcss.com"></script>
+    11	    
+    12	    <!-- Google Fonts -->
+    13	    <link rel="preconnect" href="https://fonts.googleapis.com">
+    14	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    15	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    16	    
+    17	    <!-- Font Awesome -->
+    18	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    19	    
+    20	    <!-- Particles.js -->
+    21	    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    22	    
+    23	    <!-- AOS Animation Library -->
+    24	    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    25	    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    26	    
+    27	    <!-- Custom Styles -->
+    28	    <link rel="stylesheet" href="css/style.css">
+    29	    
+    30	    <!-- Tailwind Config -->
+    31	    <script>
+    32	        tailwind.config = {
+    33	            theme: {
+    34	                extend: {
+    35	                    colors: {
+    36	                        primary: '#9370DB',
+    37	                        secondary: '#191970',
+    38	                        accent: '#FFB6C1',
+    39	                        gold: '#FFD700',
+    40	                    },
+    41	                    fontFamily: {
+    42	                        sans: ['Noto Sans KR', 'sans-serif'],
+    43	                        display: ['Playfair Display', 'serif'],
+    44	                    }
+    45	                }
+    46	            }
+    47	        }
+    48	    </script>
+    49	</head>
+    50	<body class="font-sans bg-gray-50">
+    51	
+    52	    <!-- Navigation -->
+    53	    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+    54	        <div class="container mx-auto px-4 py-4">
+    55	            <div class="flex items-center justify-between">
+    56	                <div class="flex items-center space-x-2">
+    57	                    <span class="text-3xl">🌙</span>
+    58	                    <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">운세플러스</span>
+    59	                </div>
+    60	                <div class="hidden md:flex items-center space-x-8">
+    61	                    <a href="#fortune" class="text-gray-700 hover:text-primary transition">오늘의 운세</a>
+    62	                    <a href="#category" class="text-gray-700 hover:text-primary transition">운세 상담</a>
+    63	                    <a href="#packages" class="text-gray-700 hover:text-primary transition">패키지</a>
+    64	                    <a href="#reviews" class="text-gray-700 hover:text-primary transition">후기</a>
+    65	                    <button class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full hover:shadow-lg transition transform hover:scale-105">
+    66	                        상담 신청
+    67	                    </button>
+    68	                </div>
+    69	                <button id="mobileMenuBtn" class="md:hidden text-2xl text-gray-700">
+    70	                    <i class="fas fa-bars"></i>
+    71	                </button>
+    72	            </div>
+    73	        </div>
+    74	        
+    75	        <!-- Mobile Menu -->
+    76	        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+    77	            <div class="container mx-auto px-4 py-4 space-y-3">
+    78	                <a href="#fortune" class="block text-gray-700 hover:text-primary transition">오늘의 운세</a>
+    79	                <a href="#category" class="block text-gray-700 hover:text-primary transition">운세 상담</a>
+    80	                <a href="#packages" class="block text-gray-700 hover:text-primary transition">패키지</a>
+    81	                <a href="#reviews" class="block text-gray-700 hover:text-primary transition">후기</a>
+    82	                <button class="w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full hover:shadow-lg transition">
+    83	                    상담 신청
+    84	                </button>
+    85	            </div>
+    86	        </div>
+    87	    </nav>
+    88	
+    89	    <!-- Hero Section with Particles -->
+    90	    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    91	        <!-- Particles Background -->
+    92	        <div id="particles-js" class="absolute inset-0"></div>
+    93	        
+    94	        <!-- Gradient Background -->
+    95	        <div class="absolute inset-0 bg-gradient-to-br from-secondary via-primary to-purple-600 opacity-90"></div>
+    96	        
+    97	        <!-- Content -->
+    98	        <div class="relative z-10 container mx-auto px-4 text-center text-white">
+    99	            <div data-aos="fade-down" data-aos-duration="1000">
+   100	                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+   101	                    당신의 운명을<br>
+   102	                    <span class="text-gold">플러스</span>하다
+   103	                </h1>
+   104	                <p class="text-xl md:text-2xl mb-4 text-gray-200">운세플러스</p>
+   105	                <p class="text-lg md:text-xl mb-12 text-gray-300">"2026년(병오년) 내 인생, 어떻게 될까요?"</p>
+   106	            </div>
+   107	            
+   108	            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="flex flex-col md:flex-row items-center justify-center gap-4 mb-16">
+   109	                <button onclick="scrollToSection('fortune')" class="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition transform hover:scale-105">
+   110	                    🎁 무료 오늘의 운세 보기
+   111	                </button>
+   112	                <button onclick="scrollToSection('category')" class="bg-gold text-secondary px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition transform hover:scale-105">
+   113	                    ✨ 상담 신청하기
+   114	                </button>
+   115	            </div>
+   116	            
+   117	            <!-- Stats Counter -->
+   118	            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+   119	                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+   120	                    <div class="text-3xl md:text-4xl font-bold text-gold mb-2" id="todayCount">234</div>
+   121	                    <div class="text-sm md:text-base text-gray-200">오늘 상담 신청</div>
+   122	                </div>
+   123	                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+   124	                    <div class="text-3xl md:text-4xl font-bold text-gold mb-2 satisfaction-rate">97.5%</div>
+   125	                    <div class="text-sm md:text-base text-gray-200">이번 달 만족도</div>
+   126	                </div>
+   127	                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+   128	                    <div class="text-3xl md:text-4xl font-bold text-gold mb-2" id="totalCount">15,842</div>
+   129	                    <div class="text-sm md:text-base text-gray-200">누적 상담</div>
+   130	                </div>
+   131	            </div>
+   132	        </div>
+   133	        
+   134	        <!-- Scroll Indicator -->
+   135	        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+   136	            <i class="fas fa-chevron-down text-white text-2xl"></i>
+   137	        </div>
+   138	    </section>
+   139	
+   140	    <!-- Free Fortune Section -->
+   141	    <section id="fortune" class="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+   142	        <div class="container mx-auto px-4">
+   143	            <div class="text-center mb-12" data-aos="fade-up">
+   144	                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+   145	                    🎁 지금 바로 확인해보세요!
+   146	                </h2>
+   147	                <p class="text-lg text-gray-600">무료로 오늘의 운세를 알아보세요</p>
+   148	            </div>
+   149	            
+   150	            <!-- Zodiac Selection -->
+   151	            <div class="max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+   152	                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+   153	                    <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">띠를 선택해주세요</h3>
+   154	                    <div class="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
+   155	                        <!-- Zodiac Buttons -->
+   156	                        <button class="zodiac-btn group" data-zodiac="쥐" data-icon="🐭">
+   157	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   158	                                <div class="text-5xl mb-2">🐭</div>
+   159	                                <div class="text-sm font-semibold text-gray-700">쥐띠</div>
+   160	                            </div>
+   161	                        </button>
+   162	                        <button class="zodiac-btn group" data-zodiac="소" data-icon="🐮">
+   163	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   164	                                <div class="text-5xl mb-2">🐮</div>
+   165	                                <div class="text-sm font-semibold text-gray-700">소띠</div>
+   166	                            </div>
+   167	                        </button>
+   168	                        <button class="zodiac-btn group" data-zodiac="호랑이" data-icon="🐯">
+   169	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   170	                                <div class="text-5xl mb-2">🐯</div>
+   171	                                <div class="text-sm font-semibold text-gray-700">호랑이띠</div>
+   172	                            </div>
+   173	                        </button>
+   174	                        <button class="zodiac-btn group" data-zodiac="토끼" data-icon="🐰">
+   175	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   176	                                <div class="text-5xl mb-2">🐰</div>
+   177	                                <div class="text-sm font-semibold text-gray-700">토끼띠</div>
+   178	                            </div>
+   179	                        </button>
+   180	                        <button class="zodiac-btn group" data-zodiac="용" data-icon="🐲">
+   181	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   182	                                <div class="text-5xl mb-2">🐲</div>
+   183	                                <div class="text-sm font-semibold text-gray-700">용띠</div>
+   184	                            </div>
+   185	                        </button>
+   186	                        <button class="zodiac-btn group" data-zodiac="뱀" data-icon="🐍">
+   187	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   188	                                <div class="text-5xl mb-2">🐍</div>
+   189	                                <div class="text-sm font-semibold text-gray-700">뱀띠</div>
+   190	                            </div>
+   191	                        </button>
+   192	                        <button class="zodiac-btn group" data-zodiac="말" data-icon="🐴">
+   193	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   194	                                <div class="text-5xl mb-2">🐴</div>
+   195	                                <div class="text-sm font-semibold text-gray-700">말띠</div>
+   196	                            </div>
+   197	                        </button>
+   198	                        <button class="zodiac-btn group" data-zodiac="양" data-icon="🐑">
+   199	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   200	                                <div class="text-5xl mb-2">🐑</div>
+   201	                                <div class="text-sm font-semibold text-gray-700">양띠</div>
+   202	                            </div>
+   203	                        </button>
+   204	                        <button class="zodiac-btn group" data-zodiac="원숭이" data-icon="🐵">
+   205	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   206	                                <div class="text-5xl mb-2">🐵</div>
+   207	                                <div class="text-sm font-semibold text-gray-700">원숭이띠</div>
+   208	                            </div>
+   209	                        </button>
+   210	                        <button class="zodiac-btn group" data-zodiac="닭" data-icon="🐔">
+   211	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   212	                                <div class="text-5xl mb-2">🐔</div>
+   213	                                <div class="text-sm font-semibold text-gray-700">닭띠</div>
+   214	                            </div>
+   215	                        </button>
+   216	                        <button class="zodiac-btn group" data-zodiac="개" data-icon="🐶">
+   217	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   218	                                <div class="text-5xl mb-2">🐶</div>
+   219	                                <div class="text-sm font-semibold text-gray-700">개띠</div>
+   220	                            </div>
+   221	                        </button>
+   222	                        <button class="zodiac-btn group" data-zodiac="돼지" data-icon="🐷">
+   223	                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 hover:shadow-xl transition transform hover:scale-110 cursor-pointer border-2 border-transparent hover:border-primary">
+   224	                                <div class="text-5xl mb-2">🐷</div>
+   225	                                <div class="text-sm font-semibold text-gray-700">돼지띠</div>
+   226	                            </div>
+   227	                        </button>
+   228	                    </div>
+   229	                </div>
+   230	            </div>
+   231	        </div>
+   232	    </section>
+   233	
+   234	    <!-- Real-time Dashboard -->
+   235	    <section class="py-16 bg-white">
+   236	        <div class="container mx-auto px-4">
+   237	            <div class="max-w-4xl mx-auto" data-aos="fade-up">
+   238	                <div class="bg-gradient-to-r from-primary to-secondary rounded-3xl p-8 text-white shadow-2xl">
+   239	                    <h3 class="text-2xl font-bold mb-6 text-center">🔥 지금 가장 많이 신청하는 상담</h3>
+   240	                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+   241	                        <div class="bg-white/20 backdrop-blur-md rounded-xl p-4 text-center">
+   242	                            <div class="text-3xl mb-2">💕</div>
+   243	                            <div class="font-bold mb-1">연애운</div>
+   244	                            <div class="text-2xl font-bold text-gold">42%</div>
+   245	                        </div>
+   246	                        <div class="bg-white/20 backdrop-blur-md rounded-xl p-4 text-center">
+   247	                            <div class="text-3xl mb-2">🎰</div>
+   248	                            <div class="font-bold mb-1">로또운</div>
+   249	                            <div class="text-2xl font-bold text-gold">23%</div>
+   250	                        </div>
+   251	                        <div class="bg-white/20 backdrop-blur-md rounded-xl p-4 text-center">
+   252	                            <div class="text-3xl mb-2">🎓</div>
+   253	                            <div class="font-bold mb-1">합격운</div>
+   254	                            <div class="text-2xl font-bold text-gold">18%</div>
+   255	                        </div>
+   256	                    </div>
+   257	                </div>
+   258	            </div>
+   259	        </div>
+   260	    </section>
+   261	
+   262	    <!-- Category Selection -->
+   263	    <section id="category" class="py-20 bg-gray-50">
+   264	        <div class="container mx-auto px-4">
+   265	            <div class="text-center mb-12" data-aos="fade-up">
+   266	                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+   267	                    어떤 고민이 있으신가요?
+   268	                </h2>
+   269	                <p class="text-lg text-gray-600">운세플러스가 정확하게 상담해드립니다</p>
+   270	            </div>
+   271	            
+   272	            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+   273	                <!-- Basic Fortune Card -->
+   274	                <div class="category-card bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition transform hover:-translate-y-2 cursor-pointer border-2 border-transparent hover:border-primary" data-aos="fade-up" data-aos-delay="100" data-category="basic">
+   275	                    <div class="text-center mb-6">
+   276	                        <div class="text-6xl mb-4">🔮</div>
+   277	                        <h3 class="text-2xl font-bold text-gray-800 mb-2">기본 운세</h3>
+   278	                        <p class="text-gray-600 text-sm">전통 운세의 기본</p>
+   279	                    </div>
+   280	                    <ul class="space-y-3">
+   281	                        <li class="flex items-center text-gray-700">
+   282	                            <i class="fas fa-check-circle text-primary mr-2"></i>
+   283	                            월별운세
+   284	                        </li>
+   285	                        <li class="flex items-center text-gray-700">
+   286	                            <i class="fas fa-check-circle text-primary mr-2"></i>
+   287	                            신년운세
+   288	                        </li>
+   289	                        <li class="flex items-center text-gray-700">
+   290	                            <i class="fas fa-check-circle text-primary mr-2"></i>
+   291	                            신년운세 프리미엄
+   292	                        </li>
+   293	                        <li class="flex items-center text-gray-700">
+   294	                            <i class="fas fa-check-circle text-primary mr-2"></i>
+   295	                            평생사주풀이
+   296	                        </li>
+   297	                        <li class="flex items-center text-gray-700">
+   298	                            <i class="fas fa-check-circle text-primary mr-2"></i>
+   299	                            정통사주 프리미엄
+   300	                        </li>
+   301	                    </ul>
+   302	                    <button class="mt-6 w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-full font-bold hover:shadow-lg transition transform hover:scale-105">
+   303	                        상담 신청하기
+   304	                    </button>
+   305	                </div>
+   306	                
+   307	                <!-- Special Fortune Card -->
+   308	                <div class="category-card bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition transform hover:-translate-y-2 cursor-pointer border-2 border-transparent hover:border-accent" data-aos="fade-up" data-aos-delay="200" data-category="special">
+   309	                    <div class="text-center mb-6">
+   310	                        <div class="text-6xl mb-4">💕</div>
+   311	                        <h3 class="text-2xl font-bold text-gray-800 mb-2">특화 운세</h3>
+   312	                        <p class="text-gray-600 text-sm">가장 인기있는 상담</p>
+   313	                        <span class="inline-block mt-2 bg-red-500 text-white text-xs px-3 py-1 rounded-full">HOT 🔥</span>
+   314	                    </div>
+   315	                    <ul class="space-y-3">
+   316	                        <li class="flex items-center text-gray-700">
+   317	                            <i class="fas fa-heart text-accent mr-2"></i>
+   318	                            연애운 • 재회운
+   319	                        </li>
+   320	                        <li class="flex items-center text-gray-700">
+   321	                            <i class="fas fa-dollar-sign text-gold mr-2"></i>
+   322	                            재물운 • 로또운
+   323	                        </li>
+   324	                        <li class="flex items-center text-gray-700">
+   325	                            <i class="fas fa-graduation-cap text-primary mr-2"></i>
+   326	                            합격운 • 취업운
+   327	                        </li>
+   328	                        <li class="flex items-center text-gray-700">
+   329	                            <i class="fas fa-heartbeat text-red-500 mr-2"></i>
+   330	                            건강운 • 이사운
+   331	                        </li>
+   332	                    </ul>
+   333	                    <button class="mt-6 w-full bg-gradient-to-r from-accent to-red-400 text-white py-3 rounded-full font-bold hover:shadow-lg transition transform hover:scale-105">
+   334	                        상담 신청하기
+   335	                    </button>
+   336	                </div>
+   337	                
+   338	                <!-- MZ Fortune Card -->
+   339	                <div class="category-card bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition transform hover:-translate-y-2 cursor-pointer border-2 border-transparent hover:border-gold" data-aos="fade-up" data-aos-delay="300" data-category="mz">
+   340	                    <div class="text-center mb-6">
+   341	                        <div class="text-6xl mb-4">💫</div>
+   342	                        <h3 class="text-2xl font-bold text-gray-800 mb-2">MZ 특화</h3>
+   343	                        <p class="text-gray-600 text-sm">트렌디한 운세 상담</p>
+   344	                        <span class="inline-block mt-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs px-3 py-1 rounded-full">NEW ✨</span>
+   345	                    </div>
+   346	                    <ul class="space-y-3">
+   347	                        <li class="flex items-center text-gray-700">
+   348	                            <i class="fas fa-heart text-accent mr-2"></i>
+   349	                            내 사랑 찾기
+   350	                        </li>
+   351	                        <li class="flex items-center text-gray-700">
+   352	                            <i class="fas fa-gem text-primary mr-2"></i>
+   353	                            성숙한 연애 비법
+   354	                        </li>
+   355	                        <li class="flex items-center text-gray-700">
+   356	                            <i class="fas fa-film text-gold mr-2"></i>
+   357	                            영화같은 로맨스
+   358	                        </li>
+   359	                        <li class="flex items-center text-gray-700">
+   360	                            <i class="fas fa-crown text-secondary mr-2"></i>
+   361	                            우아한 연애 비법
+   362	                        </li>
+   363	                        <li class="flex items-center text-gray-700">
+   364	                            <i class="fas fa-book text-primary mr-2"></i>
+   365	                            운명 이야기
+   366	                        </li>
+   367	                        <li class="flex items-center text-gray-700">
+   368	                            <i class="fas fa-star text-gold mr-2"></i>
+   369	                            운명의 메아리
+   370	                        </li>
+   371	                        <li class="flex items-center text-gray-700">
+   372	                            <i class="fas fa-magnet text-accent mr-2"></i>
+   373	                            자석 매력
+   374	                        </li>
+   375	                        <li class="flex items-center text-gray-700">
+   376	                            <i class="fas fa-search-heart text-secondary mr-2"></i>
+   377	                            짝사랑 알아보기
+   378	                        </li>
+   379	                    </ul>
+   380	                    <button class="mt-6 w-full bg-gradient-to-r from-gold to-yellow-500 text-secondary py-3 rounded-full font-bold hover:shadow-lg transition transform hover:scale-105">
+   381	                        상담 신청하기
+   382	                    </button>
+   383	                </div>
+   384	            </div>
+   385	        </div>
+   386	    </section>
+   387	
+   388	    <!-- Packages Section -->
+   389	    <section id="packages" class="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+   390	        <div class="container mx-auto px-4">
+   391	            <div class="text-center mb-12" data-aos="fade-up">
+   392	                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+   393	                    🎁 인기 패키지
+   394	                </h2>
+   395	                <p class="text-lg text-gray-600">패키지로 구매하면 최대 30% 할인!</p>
+   396	            </div>
+   397	            
+   398	            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+   399	                <!-- Love Package -->
+   400	                <div class="bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+   401	                    <div class="text-center mb-6">
+   402	                        <div class="text-6xl mb-4">💕</div>
+   403	                        <h3 class="text-2xl font-bold text-gray-800 mb-2">연애운 풀코스</h3>
+   404	                        <p class="text-sm text-gray-600 mb-4">완벽한 연애 상담 패키지</p>
+   405	                    </div>
+   406	                    <div class="space-y-3 mb-6">
+   407	                        <div class="flex items-center text-gray-700">
+   408	                            <i class="fas fa-check text-primary mr-2"></i>
+   409	                            기본 연애운
+   410	                        </div>
+   411	                        <div class="flex items-center text-gray-700">
+   412	                            <i class="fas fa-check text-primary mr-2"></i>
+   413	                            이상형 분석
+   414	                        </div>
+   415	                        <div class="flex items-center text-gray-700">
+   416	                            <i class="fas fa-check text-primary mr-2"></i>
+   417	                            올해 인연운
+   418	                        </div>
+   419	                        <div class="flex items-center text-gray-700">
+   420	                            <i class="fas fa-check text-primary mr-2"></i>
+   421	                            고백 타이밍
+   422	                        </div>
+   423	                    </div>
+   424	                    <div class="text-center mb-6">
+   425	                        <div class="text-gray-400 line-through text-lg">₩80,000</div>
+   426	                        <div class="text-4xl font-bold text-primary mb-1">₩40,000</div>
+   427	                        <div class="inline-block bg-red-500 text-white text-sm px-3 py-1 rounded-full">50% 할인</div>
+   428	                    </div>
+   429	                    <button class="w-full bg-gradient-to-r from-accent to-red-400 text-white py-3 rounded-full font-bold hover:shadow-lg transition transform hover:scale-105">
+   430	                        패키지 신청하기
+   431	                    </button>
+   432	                </div>
+   433	                
+   434	                <!-- Wealth Package -->
+   435	                <div class="bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition transform hover:-translate-y-2 border-4 border-gold relative" data-aos="fade-up" data-aos-delay="200">
+   436	                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gold text-secondary px-6 py-1 rounded-full font-bold text-sm">
+   437	                        BEST 👑
+   438	                    </div>
+   439	                    <div class="text-center mb-6">
+   440	                        <div class="text-6xl mb-4">🎰</div>
+   441	                        <h3 class="text-2xl font-bold text-gray-800 mb-2">대박운 패키지</h3>
+   442	                        <p class="text-sm text-gray-600 mb-4">재물과 행운을 한번에!</p>
+   443	                    </div>
+   444	                    <div class="space-y-3 mb-6">
+   445	                        <div class="flex items-center text-gray-700">
+   446	                            <i class="fas fa-check text-gold mr-2"></i>
+   447	                            재물운
+   448	                        </div>
+   449	                        <div class="flex items-center text-gray-700">
+   450	                            <i class="fas fa-check text-gold mr-2"></i>
+   451	                            로또운
+   452	                        </div>
+   453	                        <div class="flex items-center text-gray-700">
+   454	                            <i class="fas fa-check text-gold mr-2"></i>
+   455	                            투자운
+   456	                        </div>
+   457	                        <div class="flex items-center text-gray-700">
+   458	                            <i class="fas fa-check text-gold mr-2"></i>
+   459	                            횡재운
+   460	                        </div>
+   461	                    </div>
+   462	                    <div class="text-center mb-6">
+   463	                        <div class="text-gray-400 line-through text-lg">₩90,000</div>
+   464	                        <div class="text-4xl font-bold text-gold mb-1">₩45,000</div>
+   465	                        <div class="inline-block bg-red-500 text-white text-sm px-3 py-1 rounded-full">50% 할인</div>
+   466	                    </div>
+   467	                    <button class="w-full bg-gradient-to-r from-gold to-yellow-500 text-secondary py-3 rounded-full font-bold hover:shadow-lg transition transform hover:scale-105">
+   468	                        패키지 신청하기
+   469	                    </button>
+   470	                </div>
+   471	                
+   472	                <!-- Success Package -->
+   473	                <div class="bg-white rounded-3xl shadow-xl p-8 hover:shadow-2xl transition transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+   474	                    <div class="text-center mb-6">
+   475	                        <div class="text-6xl mb-4">🎓</div>
+   476	                        <h3 class="text-2xl font-bold text-gray-800 mb-2">합격 올인원</h3>
+   477	                        <p class="text-sm text-gray-600 mb-4">취업과 합격을 위한 필수</p>
+   478	                    </div>
+   479	                    <div class="space-y-3 mb-6">
+   480	                        <div class="flex items-center text-gray-700">
+   481	                            <i class="fas fa-check text-primary mr-2"></i>
+   482	                            합격운
+   483	                        </div>
+   484	                        <div class="flex items-center text-gray-700">
+   485	                            <i class="fas fa-check text-primary mr-2"></i>
+   486	                            취업운
+   487	                        </div>
+   488	                        <div class="flex items-center text-gray-700">
+   489	                            <i class="fas fa-check text-primary mr-2"></i>
+   490	                            면접운
+   491	                        </div>
+   492	                        <div class="flex items-center text-gray-700">
+   493	                            <i class="fas fa-check text-primary mr-2"></i>
+   494	                            시험운
+   495	                        </div>
+   496	                    </div>
+   497	                    <div class="text-center mb-6">
+   498	                        <div class="text-gray-400 line-through text-lg">₩85,000</div>
+   499	                        <div class="text-4xl font-bold text-primary mb-1">₩42,500</div>
+   500	                        <div class="inline-block bg-red-500 text-white text-sm px-3 py-1 rounded-full">50% 할인</div>
+   501	                    </div>
+   502	                    <button class="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-full font-bold hover:shadow-lg transition transform hover:scale-105">
+   503	                        패키지 신청하기
+   504	                    </button>
+   505	                </div>
+   506	            </div>
+   507	        </div>
+   508	    </section>
+   509	
+   510	    <!-- Reviews Section -->
+   511	    <section id="reviews" class="py-20 bg-white">
+   512	        <div class="container mx-auto px-4">
+   513	            <div class="text-center mb-12" data-aos="fade-up">
+   514	                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+   515	                    💬 실제 상담 후기
+   516	                </h2>
+   517	                <p class="text-lg text-gray-600">5,842개의 진짜 후기를 확인해보세요</p>
+   518	            </div>
+   519	            
+   520	            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+   521	                <!-- Review 1 -->
+   522	                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+   523	                    <div class="flex items-center mb-4">
+   524	                        <div class="flex text-gold text-xl">
+   525	                            <i class="fas fa-star"></i>
+   526	                            <i class="fas fa-star"></i>
+   527	                            <i class="fas fa-star"></i>
+   528	                            <i class="fas fa-star"></i>
+   529	                            <i class="fas fa-star"></i>
+   530	                        </div>
+   531	                        <span class="ml-2 text-sm text-gray-600">5.0</span>
+   532	                    </div>
+   533	                    <p class="text-gray-700 mb-4">"로또 3등 당첨했어요! 진짜 신기해요... 운세플러스 믿고 번호 조합했는데 진짜 됐습니다 ㅠㅠ"</p>
+   534	                    <div class="flex items-center justify-between">
+   535	                        <div class="text-sm text-gray-600">김*수 (33세)</div>
+   536	                        <div class="flex items-center text-sm text-gray-500">
+   537	                            <i class="far fa-thumbs-up mr-1"></i>
+   538	                            <span>127</span>
+   539	                        </div>
+   540	                    </div>
+   541	                </div>
+   542	                
+   543	                <!-- Review 2 -->
+   544	                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200">
+   545	                    <div class="flex items-center mb-4">
+   546	                        <div class="flex text-gold text-xl">
+   547	                            <i class="fas fa-star"></i>
+   548	                            <i class="fas fa-star"></i>
+   549	                            <i class="fas fa-star"></i>
+   550	                            <i class="fas fa-star"></i>
+   551	                            <i class="fas fa-star"></i>
+   552	                        </div>
+   553	                        <span class="ml-2 text-sm text-gray-600">5.0</span>
+   554	                    </div>
+   555	                    <p class="text-gray-700 mb-4">"재회 상담 받고 진짜 전 남친한테 연락왔어요ㅠㅠ 3개월만에 다시 만났습니다. 감사합니다!"</p>
+   556	                    <div class="flex items-center justify-between">
+   557	                        <div class="text-sm text-gray-600">이*희 (27세)</div>
+   558	                        <div class="flex items-center text-sm text-gray-500">
+   559	                            <i class="far fa-thumbs-up mr-1"></i>
+   560	                            <span>342</span>
+   561	                        </div>
+   562	                    </div>
+   563	                </div>
+   564	                
+   565	                <!-- Review 3 -->
+   566	                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="300">
+   567	                    <div class="flex items-center mb-4">
+   568	                        <div class="flex text-gold text-xl">
+   569	                            <i class="fas fa-star"></i>
+   570	                            <i class="fas fa-star"></i>
+   571	                            <i class="fas fa-star"></i>
+   572	                            <i class="fas fa-star"></i>
+   573	                            <i class="fas fa-star"></i>
+   574	                        </div>
+   575	                        <span class="ml-2 text-sm text-gray-600">5.0</span>
+   576	                    </div>
+   577	                    <p class="text-gray-700 mb-4">"공무원 시험 합격했습니다!! 면접 타이밍까지 정확하게 맞춰주셔서 대박이에요👍"</p>
+   578	                    <div class="flex items-center justify-between">
+   579	                        <div class="text-sm text-gray-600">박*진 (29세)</div>
+   580	                        <div class="flex items-center text-sm text-gray-500">
+   581	                            <i class="far fa-thumbs-up mr-1"></i>
+   582	                            <span>218</span>
+   583	                        </div>
+   584	                    </div>
+   585	                </div>
+   586	                
+   587	                <!-- Review 4 -->
+   588	                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+   589	                    <div class="flex items-center mb-4">
+   590	                        <div class="flex text-gold text-xl">
+   591	                            <i class="fas fa-star"></i>
+   592	                            <i class="fas fa-star"></i>
+   593	                            <i class="fas fa-star"></i>
+   594	                            <i class="fas fa-star"></i>
+   595	                            <i class="fas fa-star"></i>
+   596	                        </div>
+   597	                        <span class="ml-2 text-sm text-gray-600">5.0</span>
+   598	                    </div>
+   599	                    <p class="text-gray-700 mb-4">"MBTI 궁합 상담 받았는데 너무 정확해서 소름돋았어요. 지금 남친이랑 결혼 준비 중이에요 💕"</p>
+   600	                    <div class="flex items-center justify-between">
+   601	                        <div class="text-sm text-gray-600">최*영 (25세)</div>
+   602	                        <div class="flex items-center text-sm text-gray-500">
+   603	                            <i class="far fa-thumbs-up mr-1"></i>
+   604	                            <span>189</span>
+   605	                        </div>
+   606	                    </div>
+   607	                </div>
+   608	                
+   609	                <!-- Review 5 -->
+   610	                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200">
+   611	                    <div class="flex items-center mb-4">
+   612	                        <div class="flex text-gold text-xl">
+   613	                            <i class="fas fa-star"></i>
+   614	                            <i class="fas fa-star"></i>
+   615	                            <i class="fas fa-star"></i>
+   616	                            <i class="fas fa-star"></i>
+   617	                            <i class="fas fa-star"></i>
+   618	                        </div>
+   619	                        <span class="ml-2 text-sm text-gray-600">5.0</span>
+   620	                    </div>
+   621	                    <p class="text-gray-700 mb-4">"취업운 상담 후 바로 대기업 합격! 상담 선생님이 추천해주신 날짜에 면접봤더니 딱 됐어요!"</p>
+   622	                    <div class="flex items-center justify-between">
+   623	                        <div class="text-sm text-gray-600">정*호 (26세)</div>
+   624	                        <div class="flex items-center text-sm text-gray-500">
+   625	                            <i class="far fa-thumbs-up mr-1"></i>
+   626	                            <span>276</span>
+   627	                        </div>
+   628	                    </div>
+   629	                </div>
+   630	                
+   631	                <!-- Review 6 -->
+   632	                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="300">
+   633	                    <div class="flex items-center mb-4">
+   634	                        <div class="flex text-gold text-xl">
+   635	                            <i class="fas fa-star"></i>
+   636	                            <i class="fas fa-star"></i>
+   637	                            <i class="fas fa-star"></i>
+   638	                            <i class="fas fa-star"></i>
+   639	                            <i class="fas fa-star"></i>
+   640	                        </div>
+   641	                        <span class="ml-2 text-sm text-gray-600">5.0</span>
+   642	                    </div>
+   643	                    <p class="text-gray-700 mb-4">"고백 타이밍 상담 받고 그날 고백했는데 성공했어요!! 3년 짝사랑 끝!! 너무 감사합니다 ㅜㅜ"</p>
+   644	                    <div class="flex items-center justify-between">
+   645	                        <div class="text-sm text-gray-600">강*민 (24세)</div>
+   646	                        <div class="flex items-center text-sm text-gray-500">
+   647	                            <i class="far fa-thumbs-up mr-1"></i>
+   648	                            <span>412</span>
+   649	                        </div>
+   650	                    </div>
+   651	                </div>
+   652	            </div>
+   653	        </div>
+   654	    </section>
+   655	
+   656	    <!-- CTA Section -->
+   657	    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+   658	        <div class="container mx-auto px-4 text-center">
+   659	            <div data-aos="fade-up">
+   660	                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+   661	                    지금 바로 상담 신청하세요 ✨
+   662	                </h2>
+   663	                <p class="text-xl mb-8 text-gray-200">
+   664	                    첫 상담 고객님께 특별 10% 할인 쿠폰 제공!
+   665	                </p>
+   666	                <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+   667	                    <button onclick="scrollToSection('category')" class="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition transform hover:scale-105">
+   668	                        상담 신청하기
+   669	                    </button>
+   670	                    <button onclick="scrollToSection('fortune')" class="bg-gold text-secondary px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition transform hover:scale-105">
+   671	                        무료 운세 보기
+   672	                    </button>
+   673	                </div>
+   674	            </div>
+   675	        </div>
+   676	    </section>
+   677	
+   678	    <!-- Footer -->
+   679	    <footer class="bg-gray-900 text-white py-12">
+   680	        <div class="container mx-auto px-4">
+   681	            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+   682	                <div>
+   683	                    <div class="flex items-center space-x-2 mb-4">
+   684	                        <span class="text-3xl">🌙</span>
+   685	                        <span class="text-2xl font-bold">운세플러스</span>
+   686	                    </div>
+   687	                    <p class="text-gray-400">당신의 운명을 플러스하다</p>
+   688	                </div>
+   689	                <div>
+   690	                    <h4 class="text-lg font-bold mb-4">바로가기</h4>
+   691	                    <ul class="space-y-2 text-gray-400">
+   692	                        <li><a href="#fortune" class="hover:text-white transition">오늘의 운세</a></li>
+   693	                        <li><a href="#category" class="hover:text-white transition">운세 상담</a></li>
+   694	                        <li><a href="#packages" class="hover:text-white transition">패키지</a></li>
+   695	                        <li><a href="#reviews" class="hover:text-white transition">후기</a></li>
+   696	                    </ul>
+   697	                </div>
+   698	                <div>
+   699	                    <h4 class="text-lg font-bold mb-4">고객센터</h4>
+   700	                    <ul class="space-y-2 text-gray-400">
+   701	                        <li><i class="fas fa-phone mr-2"></i>050-2112-7777</li>
+   702	                        <li><i class="fas fa-envelope mr-2"></i>santlee@naver.com</li>
+   703	                        <li><i class="fas fa-clock mr-2"></i>24시간 연중무휴</li>
+   704	                        <li><i class="fas fa-comment mr-2"></i><a href="http://pf.kakao.com/_GxdxezX" target="_blank" class="hover:text-white transition">카카오톡 채널</a></li>
+   705	                    </ul>
+   706	                </div>
+   707	            </div>
+   708	            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+   709	                <p>&copy; 2026 운세플러스. All rights reserved.</p>
+   710	                <p class="mt-2 text-xs">
+   711	                    <a href="admin.html" class="text-gray-500 hover:text-primary transition" title="관리자 모드">
+   712	                        <i class="fas fa-cog"></i>
+   713	                    </a>
+   714	                </p>
+   715	            </div>
+   716	        </div>
+   717	    </footer>
+   718	
+   719	    <!-- Fortune Modal -->
+   720	    <div id="fortuneModal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+   721	        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+   722	            <div class="sticky top-0 bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-t-3xl">
+   723	                <div class="flex items-center justify-between">
+   724	                    <div class="flex items-center">
+   725	                        <span id="modalZodiacIcon" class="text-5xl mr-4">🐭</span>
+   726	                        <div>
+   727	                            <h3 class="text-2xl font-bold" id="modalZodiacName">쥐띠</h3>
+   728	                            <p class="text-gray-200">오늘의 운세</p>
+   729	                        </div>
+   730	                    </div>
+   731	                    <button onclick="closeFortuneModa()" class="text-3xl hover:rotate-90 transition-transform">
+   732	                        <i class="fas fa-times"></i>
+   733	                    </button>
+   734	                </div>
+   735	            </div>
+   736	            
+   737	            <div class="p-8">
+   738	                <!-- Overall Fortune -->
+   739	                <div class="mb-8">
+   740	                    <div class="flex items-center mb-4">
+   741	                        <span class="text-3xl mr-3">🌟</span>
+   742	                        <h4 class="text-2xl font-bold text-gray-800">오늘의 총운</h4>
+   743	                    </div>
+   744	                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6">
+   745	                        <p id="modalOverall" class="text-gray-700 leading-relaxed text-lg"></p>
+   746	                    </div>
+   747	                </div>
+   748	                
+   749	                <!-- Love Fortune -->
+   750	                <div class="mb-8">
+   751	                    <div class="flex items-center mb-4">
+   752	                        <span class="text-3xl mr-3">❤️</span>
+   753	                        <h4 class="text-2xl font-bold text-gray-800">연애운</h4>
+   754	                    </div>
+   755	                    <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl p-6">
+   756	                        <p id="modalLove" class="text-gray-700 leading-relaxed"></p>
+   757	                    </div>
+   758	                </div>
+   759	                
+   760	                <!-- Wealth Fortune -->
+   761	                <div class="mb-8">
+   762	                    <div class="flex items-center mb-4">
+   763	                        <span class="text-3xl mr-3">💰</span>
+   764	                        <h4 class="text-2xl font-bold text-gray-800">재물운</h4>
+   765	                    </div>
+   766	                    <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6">
+   767	                        <p id="modalWealth" class="text-gray-700 leading-relaxed"></p>
+   768	                    </div>
+   769	                </div>
+   770	                
+   771	                <!-- Health Fortune -->
+   772	                <div class="mb-8">
+   773	                    <div class="flex items-center mb-4">
+   774	                        <span class="text-3xl mr-3">🏥</span>
+   775	                        <h4 class="text-2xl font-bold text-gray-800">건강운</h4>
+   776	                    </div>
+   777	                    <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-6">
+   778	                        <p id="modalHealth" class="text-gray-700 leading-relaxed"></p>
+   779	                    </div>
+   780	                </div>
+   781	                
+   782	                <!-- Lucky Items -->
+   783	                <div class="grid grid-cols-2 gap-4 mb-8">
+   784	                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-4 text-center">
+   785	                        <div class="text-sm text-gray-600 mb-2">럭키 컬러</div>
+   786	                        <div id="modalColor" class="text-xl font-bold text-gray-800"></div>
+   787	                    </div>
+   788	                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-4 text-center">
+   789	                        <div class="text-sm text-gray-600 mb-2">럭키 넘버</div>
+   790	                        <div id="modalNumber" class="text-xl font-bold text-gray-800"></div>
+   791	                    </div>
+   792	                </div>
+   793	                
+   794	                <!-- CTA Button -->
+   795	                <button onclick="scrollToSection('category'); closeFortuneModa();" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-full font-bold text-lg hover:shadow-xl transition transform hover:scale-105">
+   796	                    더 자세한 상담 받고 싶으세요? 👉 1:1 상담 신청
+   797	                </button>
+   798	            </div>
+   799	        </div>
+   800	    </div>
+   801	
+   802	    <!-- Consultation Modal -->
+   803	    <div id="consultModal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 overflow-y-auto">
+   804	        <div class="min-h-screen flex items-center justify-center p-4">
+   805	            <div class="bg-white rounded-3xl max-w-4xl w-full shadow-2xl my-8">
+   806	                <!-- Modal will be populated by JavaScript -->
+   807	                <div id="consultModalContent"></div>
+   808	            </div>
+   809	        </div>
+   810	    </div>
+   811	
+   812	    <!-- Scripts -->
+   813	    <script src="js/particles-config.js"></script>
+   814	    <script src="js/fortunes.js"></script>
+   815	    <script src="js/main.js"></script>
+   816	    <script src="js/consultation.js"></script>
+   817	    
+   818	</body>
+   819	</html>
